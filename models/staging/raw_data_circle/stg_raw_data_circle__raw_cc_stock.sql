@@ -9,7 +9,7 @@ source as (
 renamed as (
 
     select
-        CONCAT(model, '_', color, '_', IFNULL(size, 'no_size'))
+        CONCAT(model, '_', color, '_', IFNULL(size, 'no_size')) AS product_id,
         model,
         model_name,
         color,
