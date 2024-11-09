@@ -1,0 +1,11 @@
+# schema.yml
+version: 2
+
+sources:
+  - name: raw_data_circle
+    description: dataset of circle data for le wagon
+    tables:
+      - name: raw_cc_sales
+        description: sales list
+      - name: raw_cc_stock
+        description: stock list        
