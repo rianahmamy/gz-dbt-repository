@@ -1,0 +1,48 @@
+# schema.yml
+version: 2
+
+sources:
+  - name: raw_data_circle
+    description: dataset of circle data for le wagon
+    tables:
+      - name: raw_cc_sales
+        description: sales list
+      - name: raw_cc_stock
+        description: stock list
+models:
+  - name: stg_raw_data_circle__raw_cc_sales
+    description: raw data of sales list
+    columns:
+      - name: date_date
+        description: date of sales
+      - name: product_id
+        description: primary key  
+      - name: quantity
+        description: number of sales 
+  - name: stg_raw_data_circle__raw_cc_stock
+    description: raw data of stock list
+    columns:
+      - name: product_id
+        description: primary key
+        tests: 
+          - unique
+          - not_null  
+      - name: model
+        description: model of product   
+      - name: model_name
+        description: name of model
+      - name: color
+        description: color code
+      - name: color_name
+        description: name of color code
+      - name: size
+        description: size of the product
+        tests:
+          - accepted_values:
+              values: ['XS', 'S', 'M', 'L', 'XL', 'XXL']
+      - name: forecast_stock
+        description: forecast of the stock
+      - name: stock
+        description: number of product in stock
+      - name: price
+        description: price in euros
